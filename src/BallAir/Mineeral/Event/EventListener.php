@@ -21,7 +21,7 @@ class EventListener implements Listener
     public function __construct(Main $plugin)
     {
         $this->plugin = $plugin;
-        $this->config = new Config(Base::getInstance()->getDataFolder() . "settings.yml", Config::YAML);
+        $this->ball = new Config(Main::getInstance()->getDataFolder() . "settings.yml", Config::YAML);
     }
 
     public function ItemHeld(PlayerItemHeldEvent $event)
@@ -29,16 +29,16 @@ class EventListener implements Listener
         $p = $event->getPlayer();
         $item_id = $event->getItem();
         if($this->config->get("Plugin") == "true"){
-        if($item_id->getId() == $this->config->get("ID"){
+        if($item_id->getId() == $this->ball->get("ID"){
 
             $eff = new EffectInstance(Effect::getEffect(24, 100 * 99999, 
-$this->config->get("Power"), false);
+$this->ball->get("Power"), false);
             
             $p->addEffect($eff);
       } else {
        $p->removeEffect(24);
 }
-    } elseif($this->config->get("Plugin") == "false"){      
+    } elseif($this->ball->get("Plugin") == "false"){      
 Server::getInstance->getLogger->info("Le plugin est désactivé depuis la config.");
    }
 }
@@ -46,7 +46,7 @@ Server::getInstance->getLogger->info("Le plugin est désactivé depuis la config
 public function onDamage(EntityDamageEvent $event){
 
   $player = $event->getPlayer();
-               if($player->getInventory()->getItemInHand()->getId() === $this->config->get("ID")){
+               if($player->getInventory()->getItemInHand()->getId() === $this->ball->get("ID")){
 
 if ($event->getCause() === EntityDamageEvent::CAUSE_FALL){
   $event->setCancelled();
