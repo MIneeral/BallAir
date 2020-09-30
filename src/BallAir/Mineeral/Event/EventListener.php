@@ -15,7 +15,6 @@ use pocketmine\utils\Config;
 
 class EventListener implements Listener
 {
-
     public $plugin;
 
     public function __construct(Main $plugin)
