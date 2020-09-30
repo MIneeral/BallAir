@@ -1,1 +1,9 @@
+# BallAir is a PocketMine-MP plugin for make helium balloon
 
+# true for on the plugin and false to make off the plugin
+Plugin: true
+
+# The power of the effect
+Power: 3
+
+# The id of the id will be a balloon
