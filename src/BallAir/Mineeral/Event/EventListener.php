@@ -28,7 +28,7 @@ class EventListener implements Listener
 {
         $p = $event->getPlayer();
         $item_id = $event->getItem();
-        if($this->config->get("Plugin") == "true"){
+        if($this->ball->get("Plugin") == "true"){
         if($item_id->getId() == $this->ball->get("ID"){
 
             $eff = new EffectInstance(Effect::getEffect(24, 100 * 99999, 
