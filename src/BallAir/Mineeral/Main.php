@@ -16,7 +16,6 @@ class Main extends PluginBase
         
         $this->getServer->getPluginManager->registerEvents(new EventListener($this), $this);
 
-
         if(!file_exists($this->getDataFolder() . "settings.yml")){
         $this->saveResource('settings.yml');
         }
